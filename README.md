@@ -1,2 +1,5 @@
-# TypicalAppYouWillHaveToWorkOn
-Typical application you will have to work on
+# ტიპიური აპლიკაცია, როგორზეც მოგიწევთ მუშაობა
+# Typical application you will have to work on
+
+რეპოში მოცემულია eXpressApp framework-ზე შექმნილი აპლიკაცია, რომლის მსგავსზეც მოგიწევთ მუშაობა, თუ ჩვენ ვითანამშრომლებთ.
+
