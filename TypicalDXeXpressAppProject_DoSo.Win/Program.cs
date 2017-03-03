@@ -6,7 +6,6 @@ using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Security;
 using DevExpress.ExpressApp.Win;
 using DevExpress.Persistent.Base;
-using DevExpress.Persistent.BaseImpl;
 using DevExpress.Xpo.DB;
 using DevExpress.Xpo;
 
@@ -30,13 +29,12 @@ namespace TypicalDXeXpressAppProject_DoSo.Win
             Tracing.Initialize();
             TypicalDXeXpressAppProject_DoSoWindowsFormsApplication winApplication = new TypicalDXeXpressAppProject_DoSoWindowsFormsApplication();
 
-
             string connectionString = SQLiteConnectionProvider.GetConnectionString("DoSo_SampleXAFApp.db", "random_password");
             XpoDefault.DataLayer = XpoDefault.GetDataLayer(connectionString, AutoCreateOption.DatabaseAndSchema);
 
             // Refer to the https://documentation.devexpress.com/eXpressAppFramework/CustomDocument112680.aspx help article for more details on how to provide a custom splash form.
             
-            //winApplication.SplashScreen = new DevExpress.ExpressApp.Win.Utils.DXSplashScreen("YourSplashImage.png");
+            winApplication.SplashScreen = new DevExpress.ExpressApp.Win.Utils.DXSplashScreen("DoSo_Logo.png");
             //if (ConfigurationManager.ConnectionStrings["ConnectionString"] != null)
             //{
             //    winApplication.ConnectionString = ConfigurationManager.ConnectionStrings["ConnectionString"].ConnectionString;

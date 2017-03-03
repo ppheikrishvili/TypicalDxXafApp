@@ -4,31 +4,23 @@ using DevExpress.Xpo;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
 {
-    [NonPersistent]
-    public class XPLiteObjectBase : XPLiteObject
-    {
-        public XPLiteObjectBase(Session session) : base(session) { }
-        public XPLiteObjectBase(Session session, bool raiseEventAfterConstructorCallEvent) : base(session) { }
-
-        [Key(true)]
-        public int ID { get; set; }
-    }
-
-
     [DefaultClassOptions]
-    public class CommercialUsers : XPLiteObjectBase
+    public class Customer : XPLiteObjectBase
     {
-        public CommercialUsers(Session session) : base(session) { }
+        public Customer(Session session) : base(session) { }
 
-        [Size(30)]
+        public enum CustomerStatusEnum
+        {
+            Regular,
+            Forwarder,
+            Reinsurer
+        }
+
+        [Size(100)]
         [SearchMemberOptions(SearchMemberMode.Include)]
         public string Name { get; set; }
-        [Size(20)]
-        [SearchMemberOptions(SearchMemberMode.Include)]
-        public string LoginName { get; set; }
-        [Size(50)]
-        public string Password { get; set; }
-        public bool Status { get; set; }
+        
+        public CustomerStatusEnum CustomerStatus { get; set; }
 
         //[Association]
         //public XPCollection<Contract> Contracts => GetCollection<Contract>(nameof(Contracts));
