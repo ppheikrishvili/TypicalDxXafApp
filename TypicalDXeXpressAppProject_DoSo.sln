@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.25920.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypicalDXeXpressAppProject_DoSo.Module", "TypicalDXeXpressAppProject_DoSo.Module\TypicalDXeXpressAppProject_DoSo.Module.csproj", "{5F15837D-D1E5-44DC-92F0-4F2EBE9C3F8D}"
 EndProject
@@ -12,6 +12,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypicalDXeXpressAppProject_DoSo.Module.Win", "TypicalDXeXpressAppProject_DoSo.Module.Win\TypicalDXeXpressAppProject_DoSo.Module.Win.csproj", "{7964F87D-BC5D-4C4E-8B2F-71E89739AA97}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypicalDXeXpressAppProject_DoSo.Win", "TypicalDXeXpressAppProject_DoSo.Win\TypicalDXeXpressAppProject_DoSo.Win.csproj", "{D05D93DF-312D-4D4E-B980-726871EC7833}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TypicalDXeXpressAppProject_DoSo.Module._Specs", "TypicalDXeXpressAppProject_DoSo.Module._Specs\TypicalDXeXpressAppProject_DoSo.Module._Specs.csproj", "{D77170D1-81E8-4AC5-9673-89DD558A7985}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -50,6 +52,12 @@ Global
 		{D05D93DF-312D-4D4E-B980-726871EC7833}.EasyTest|Any CPU.Build.0 = EasyTest|Any CPU
 		{D05D93DF-312D-4D4E-B980-726871EC7833}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D05D93DF-312D-4D4E-B980-726871EC7833}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D77170D1-81E8-4AC5-9673-89DD558A7985}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D77170D1-81E8-4AC5-9673-89DD558A7985}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D77170D1-81E8-4AC5-9673-89DD558A7985}.EasyTest|Any CPU.ActiveCfg = Release|Any CPU
+		{D77170D1-81E8-4AC5-9673-89DD558A7985}.EasyTest|Any CPU.Build.0 = Release|Any CPU
+		{D77170D1-81E8-4AC5-9673-89DD558A7985}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D77170D1-81E8-4AC5-9673-89DD558A7985}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

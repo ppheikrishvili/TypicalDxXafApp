@@ -1,6 +1,7 @@
 ﻿using DevExpress.ExpressApp;
 using DevExpress.ExpressApp.Filtering;
 using DevExpress.Persistent.Base;
+using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
@@ -19,9 +20,9 @@ namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
         }
 
         [Size(100)]
-        [SearchMemberOptions(SearchMemberMode.Include)]
+        [SearchMemberOptions(SearchMemberMode.Include), RuleRequiredField]
         public string Name { get; set; }
         
-        public CustomerStatusEnum CustomerStatus { get; set; }
+        public CustomerStatusEnum? CustomerStatus { get; set; }
     }
 }
