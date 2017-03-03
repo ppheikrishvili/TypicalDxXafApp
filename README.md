@@ -4,5 +4,5 @@
 
 დესკტოპ აპლიკაციის სკრინკასტი იხილეთ <b><a href="https://www.devexpress.com/Products/NET/Application_Framework/i/screencasts/WinDemo.swf">აქ</a></b>
 
-სადემონსტრაციო აპლიკაციის ვიზუალი არის ასეთი:
+დესკტოპ აპლიკაციის ვიზუალი არის ასეთი:
 ![alt tag](desktop-full-16.2.png)
