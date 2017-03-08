@@ -5,9 +5,13 @@ using System.Linq.Expressions;
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
 using Shouldly;
+using TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
 {
+    /// <summary>
+    /// Base for PersistentTypes tests
+    /// </summary>
     public class XpoTestsBase
     {
         UnitOfWork _uow;
@@ -15,7 +19,11 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
         protected static UnitOfWork GetUow() => new UnitOfWork();
         protected XpoTestsBase()
         {
-            XpoDefault.DataLayer = new SimpleDataLayer(new InMemoryDataStore());
+            DevExpress.Xpo.Metadata.XPDictionary dict = new DevExpress.Xpo.Metadata.ReflectionDictionary();
+            // Initialize the XPO dictionary. 
+            dict.GetDataStoreSchema(typeof(Customer).Assembly);
+
+            XpoDefault.DataLayer = new ThreadSafeDataLayer(dict, new InMemoryDataStore());
         }
 
         protected IList<T> Get<T>(Expression<Func<T, bool>> what2Get = null) where T : XPBaseObject

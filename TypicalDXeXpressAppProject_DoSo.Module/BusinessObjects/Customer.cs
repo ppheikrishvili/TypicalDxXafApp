@@ -6,7 +6,6 @@ using DevExpress.Persistent.Base;
 using DevExpress.Persistent.Validation;
 using DevExpress.Xpo;
 using System.ComponentModel;
-using static TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects.TransactionMethods;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
 {
@@ -44,6 +43,8 @@ namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
         public XPCollection<Transaction> Transactions => GetCollection<Transaction>(nameof(Transactions));
         [Association]
         public XPCollection<Invoice> Invoices => GetCollection<Invoice>(nameof(Invoices));
+        [Association]
+        public XPCollection<ServiceRateDiscount> ServiceRateDiscounts => GetCollection<ServiceRateDiscount>(nameof(ServiceRateDiscounts));
 
         protected override void OnSaving()
         {
@@ -52,61 +53,5 @@ namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
             if (!Contracts.Any())
                 Contracts.Add(new Contract(Session));
         }
-    }
-
-    [DefaultClassOptions]
-    public class Contract : XPLiteObjectBase
-    {
-        public Contract(Session session) : base(session) { }
-
-        [Association]
-        public Customer Customer { get; set; }
-
-        //[Association]
-        //public Customer Customer { get; set; }
-    }
-
-    [DefaultClassOptions]
-    public class Transaction : XPLiteObjectBase
-    {
-        public Transaction(Session session) : base(session) { }
-
-        [Association]
-        public Customer Customer { get; set; }
-
-        public ServiceType ServiceType { get; set; }
-
-        public ServiceRateDiscount ServiceRateDiscount { get; set; }
-
-        public decimal TransactionPrice { get; set; }
-
-        protected override void OnChanged(string propertyName, object oldValue, object newValue)
-        {
-            base.OnChanged(propertyName, oldValue, newValue);
-            if (IsLoading) return;
-
-            GetSingleServiceRateDiscountResult(Session, ServiceType, Customer)
-                .OnSuccess(i => new { DiscountResult = i, CustomerValidationResult = ValidateCustomer(i.Customer) })
-                .OnSuccess(d => new { d.DiscountResult, ValidatedDiscount = ValidateDiscount(d.DiscountResult) })
-                .OnSuccess(r =>
-                {
-                    ServiceRateDiscount = r.DiscountResult;
-                    TransactionPrice = ServiceRateDiscount.AdjustedRate;
-                })
-                .OnFailure(() =>
-                {
-                    ServiceRateDiscount = null;
-                    TransactionPrice = ServiceType?.DefaultRate ?? 0;
-                });
-        }
-    }
-
-    [DefaultClassOptions]
-    public class Invoice : XPLiteObjectBase
-    {
-        public Invoice(Session session) : base(session) { }
-
-        [Association]
-        public Customer Customer { get; set; }
     }
 }

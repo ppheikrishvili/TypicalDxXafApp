@@ -1,3 +1,4 @@
+using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
@@ -9,6 +10,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
         public XPLiteObjectBase(Session session) : base(session) { }
 
         [Key(true)]
+        [VisibleInListView(true)]
         // ReSharper disable once InconsistentNaming
         public int ID { get; set; }
     }

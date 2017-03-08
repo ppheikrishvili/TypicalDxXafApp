@@ -8,9 +8,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
     {
         public ServiceType(Session session) : base(session) { }
 
-        [Association]
-        public Customer Customer { get; set; }
-
+        public string ServiceName { get; set; }
         public decimal DefaultRate { get; set; }
     }
 }

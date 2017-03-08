@@ -27,18 +27,19 @@ namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
             return Result.Fail<ServiceRateDiscount>("this place should never have been reached");
         }
 
-        public static Result<decimal> ValidateDiscount(ServiceRateDiscount discount)
+        public static Result<ServiceRateDiscount> ValidateDiscount(ServiceRateDiscount discount)
         {
-            if (discount.ServiceType == null) return Result.Fail<decimal>("ServiceType may not be null!");
-            if (discount.Customer == null) return Result.Fail<decimal>("Customer may not be null!");
+            if (discount.ServiceType == null) return Result.Fail<ServiceRateDiscount>("ServiceType may not be null!");
+            if (discount.Customer == null) return Result.Fail<ServiceRateDiscount>("Customer may not be null!");
             // ReSharper disable once ConvertIfStatementToReturnStatement
-            if (discount.AdjustedRate > discount.ServiceType.DefaultRate) return Result.Fail<decimal>("Adjusted rate may not be greater than Default Rate");
+            if (discount.AdjustedRate > discount.ServiceType.DefaultRate) return Result.Fail<ServiceRateDiscount>("Adjusted rate may not be greater than Default Rate");
 
-            return Result.Ok(discount.AdjustedRate);
+            return Result.Ok(discount);
         }
 
         public static Result ValidateCustomer(Customer customer)
         {
+            if (customer == null) return Result.Fail<int>("Customer is null!");
             if (customer.AgeCalculationResult.IsFailure) return customer.AgeCalculationResult;
             // ReSharper disable once ConvertIfStatementToReturnStatement
             if (customer.IsDeactivated) return Result.Fail("Customer is Deactivated!");

@@ -9,6 +9,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
         public ServiceRateDiscount(Session session) : base(session) { }
 
         public ServiceType ServiceType { get; set; }
+        [Association]
         public Customer Customer { get; set; }
 
         public decimal AdjustedRate { get; set; }
