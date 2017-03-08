@@ -9,7 +9,5 @@ namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
             if (emailAddress == null) throw new InvalidOperationException("Email address may not be null!");
             if (!emailAddress.Contains("@")) throw new InvalidOperationException("Email address may not be null!");
         }
-
-
     }
 }
