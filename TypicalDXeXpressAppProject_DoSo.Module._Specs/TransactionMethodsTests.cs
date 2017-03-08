@@ -2,6 +2,7 @@ using System;
 using Shouldly;
 using TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects;
 using Xunit;
+using static TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects.TransactionMethods;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
 {
@@ -17,8 +18,8 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
             var serviceType = new ServiceType(Uow) { DefaultRate = defaultRate };
             Uow.CommitChanges();
 
-            // Assert
-            TransactionMethods.GetSingleServiceRateDiscountResult(Uow, serviceType, customer).IsFailure.ShouldBeTrue();
+            // Act & Assert
+            GetSingleServiceRateDiscountResult(Uow, serviceType, customer).IsFailure.ShouldBeTrue();
         }
         [Fact]
         public void When_GetSingleServiceRateDiscountResult_and_discount_DOES_exist_it_should_return_it()
@@ -32,8 +33,8 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
             var serviceRateDiscount = new ServiceRateDiscount(Uow) { ServiceType = serviceType, Customer = customer, AdjustedRate = adjustedRate };
             Uow.CommitChanges();
 
-            // Assert
-            TransactionMethods.GetSingleServiceRateDiscountResult(Uow, serviceType, customer).Value.ShouldBe(serviceRateDiscount);
+            // Act & Assert
+            GetSingleServiceRateDiscountResult(Uow, serviceType, customer).Value.ShouldBe(serviceRateDiscount);
         }
         [Fact]
         public void When_GetSingleServiceRateDiscountResult_and_more_than_1_discount_DOES_exist_it_should_return_none()
@@ -50,8 +51,8 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
             new ServiceRateDiscount(Uow) { ServiceType = serviceType, Customer = customer, AdjustedRate = adjustedRate };
             Uow.CommitChanges();
 
-            // Assert
-            TransactionMethods.GetSingleServiceRateDiscountResult(Uow, serviceType, customer).IsFailure.ShouldBeTrue();
+            // Act & Assert
+            GetSingleServiceRateDiscountResult(Uow, serviceType, customer).IsFailure.ShouldBeTrue();
         }
 
     }

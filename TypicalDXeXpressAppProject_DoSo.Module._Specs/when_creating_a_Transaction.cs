@@ -30,7 +30,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
         }
 
         [Property]
-        public void If_ServiceRateDiscount_does_NOT_exist_for_Customer_and_ServiceRate_ServiceType_ServiceRate_should_be_applied()
+        public void If_ServiceRateDiscount_does_NOT_exist_for_Customer_ServiceType_DefaultRate_should_be_applied()
         {
             const int defaultRate = 10;
 
