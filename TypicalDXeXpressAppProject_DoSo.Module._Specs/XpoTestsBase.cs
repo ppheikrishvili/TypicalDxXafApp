@@ -4,6 +4,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using DevExpress.Xpo;
 using DevExpress.Xpo.DB;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 using TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects;
 
@@ -52,6 +53,11 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
         {
             Uow.Reload(object2Reload);
             return object2Reload;
+        }
+
+        protected void FailMiserably()
+        {
+            throw new AssertFailedException("Test not implemented!");
         }
     }
 }

@@ -11,8 +11,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
         [Fact]
         public void When_creating_a_Customer_contract_should_get_created()
         {
-            // Arrange
-            // Act
+            // Arrange & Act
             var customer = new Customer(Uow);
             Uow.CommitChanges();
 
@@ -43,7 +42,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
             // Act
             var age = dateOfBirth.GetAge(currentDate);
 
-            // თუ ასაკის დათვლისას მოხდა შეცდომა, გავაგრძელოთ
+            // თუ ასაკის დათვლისას მოხდა შეცდომა, შედეგი დავიკიდოთ
             if (!age.IsSuccess) return;
 
             // Assert

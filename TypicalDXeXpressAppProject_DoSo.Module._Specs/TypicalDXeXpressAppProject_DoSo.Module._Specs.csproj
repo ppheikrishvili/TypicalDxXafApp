@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerTests.cs" />
+    <Compile Include="StockTests.cs" />
     <Compile Include="TransactionMethodsTests.cs" />
     <Compile Include="XpoTestsBase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
