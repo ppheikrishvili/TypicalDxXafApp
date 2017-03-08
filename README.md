@@ -9,3 +9,7 @@ Solution-ის დასაბილდად უნდა დააყენ�
 
 დემო დესკტოპ აპლიკაციის ვიზუალი არის ასეთი:
 ![alt tag](desktop-full-16.2.png)
+
+----
+
+სტუდენტების საყურადღებოდ - დავალება, რომელიც უნდა შეასრულოთ, იხილეთ ფაილში <a href="https://github.com/DoSo-Management/TypicalDxXafApp/blob/master/დავალება.md">დავალება.md</a>
