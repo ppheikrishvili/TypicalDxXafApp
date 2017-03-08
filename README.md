@@ -7,3 +7,5 @@
 
 დემო დესკტოპ აპლიკაციის ვიზუალი არის ასეთი:
 ![alt tag](desktop-full-16.2.png)
+
+Solution-ის დასაბილდად უნდა დააყენოთ https://go.devexpress.com/DevExpressDownload_UniversalTrial.aspx
