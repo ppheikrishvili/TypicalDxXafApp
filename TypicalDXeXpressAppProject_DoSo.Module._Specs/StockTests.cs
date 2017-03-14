@@ -41,6 +41,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
         public void StockItemBalance_should_be_ADDED_to_customer_if_it_doesnt_exist()
         {
             FailMiserably();
+            //Testing
         }
         [Fact]
         public void StockItemBalance_should_be_UPDATED_if_it_exists_for_customer()
