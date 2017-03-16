@@ -89,6 +89,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassLibrary\IBaseClass.cs" />
+    <Compile Include="ClassLibrary\StockItem.cs" />
+    <Compile Include="ClassLibrary\StockTransaction.cs" />
     <Compile Include="CustomerTests.cs" />
     <Compile Include="StockTests.cs" />
     <Compile Include="TransactionMethodsTests.cs" />
