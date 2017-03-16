@@ -72,7 +72,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
         /// <summary>
         /// 
         /// </summary>
-        private BaseClassList(IEnumerable<T> initilaData)
+        public BaseClassList(IEnumerable<T> initilaData)
         {
             this.AddRange(initilaData);
         }

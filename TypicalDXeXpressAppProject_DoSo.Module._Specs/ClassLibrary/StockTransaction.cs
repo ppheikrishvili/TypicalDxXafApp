@@ -59,32 +59,25 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
     public partial class StockTransactionList : BaseClassList<StockTransaction>
     {
 
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         public StockBalanceList GetBalanceList()
         {
-            //var tmpStockBalanceList = new StockBalanceList();
+            var tmpStockBalanceList = new StockBalanceList();
 
-            //List<StockItem> tmpStockItemsList = this.Select( S => S.stockItem).Distinct().ToList();
+            List<int> tmpStockItemsList = this.Select( S => S.stockItem.Id).Distinct().ToList();
 
-            //foreach (var tmpStockItem in tmpStockItemsList)
-            //{
-            //    var oneStockItemList = this.Where(W => W.stockItem.Id == tmpStockItem.Id).ToList();
+            foreach (var tmpStockItemid in tmpStockItemsList)
+            {
+                var oneStockItemList = this.Where(W => W.stockItem.Id == tmpStockItemid).ToList();
 
-            //    tmpStockBalanceList.Add( new StockBalance() { stockItem = tmpStockItem, Amount = oneStockItemList.Sum( SS => SS. ) });
-
-            //    tmpStockBalanceList.AddRange(oneStockItemList.Select( S => 
-                
-            //    new StockBalance()
-            //    {
-            //        Id = S.Id,
-            //        stockItem = S.stockItem,
-            //        Amount = 
-            //    }
-            //    ));
-            //}
+                tmpStockBalanceList.Add(new StockBalance() { Amount = oneStockItemList.Select(S => S.Amount).Sum(), stockItem = oneStockItemList.Select(ss=> ss.stockItem).FirstOrDefault() });
+            }
 
 
-            return new StockBalanceList();
+            return tmpStockBalanceList;
         }
     }
 
