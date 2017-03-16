@@ -90,6 +90,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClassLibrary\IBaseClass.cs" />
+    <Compile Include="ClassLibrary\StockBalance.cs" />
     <Compile Include="ClassLibrary\StockItem.cs" />
     <Compile Include="ClassLibrary\StockTransaction.cs" />
     <Compile Include="CustomerTests.cs" />
