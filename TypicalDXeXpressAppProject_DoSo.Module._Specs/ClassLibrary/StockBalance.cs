@@ -35,4 +35,16 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
         }
 
     }
+
+
+
+
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public partial class StockBalanceList : BaseClassList<StockBalance>
+    {
+    }
 }

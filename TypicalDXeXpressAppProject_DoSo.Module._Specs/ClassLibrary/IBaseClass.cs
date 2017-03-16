@@ -49,4 +49,40 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
 
 
 
+
+
+
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public abstract class BaseClassList<T> : List<T>, IBaseClass where T : BaseClass
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public BaseClassList()
+        {
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private BaseClassList(IEnumerable<T> initilaData)
+        {
+            this.AddRange(initilaData);
+        }
+
+    }
+
+
+
+
+
+
+
 }

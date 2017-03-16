@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using DevExpress.Data.Helpers;
 using TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
@@ -49,4 +49,44 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
             set { SetPropertyValue(() => TransactionNumber, value); }
         }
     }
+
+
+
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public partial class StockTransactionList : BaseClassList<StockTransaction>
+    {
+
+
+        public StockBalanceList GetBalanceList()
+        {
+            //var tmpStockBalanceList = new StockBalanceList();
+
+            //List<StockItem> tmpStockItemsList = this.Select( S => S.stockItem).Distinct().ToList();
+
+            //foreach (var tmpStockItem in tmpStockItemsList)
+            //{
+            //    var oneStockItemList = this.Where(W => W.stockItem.Id == tmpStockItem.Id).ToList();
+
+            //    tmpStockBalanceList.Add( new StockBalance() { stockItem = tmpStockItem, Amount = oneStockItemList.Sum( SS => SS. ) });
+
+            //    tmpStockBalanceList.AddRange(oneStockItemList.Select( S => 
+                
+            //    new StockBalance()
+            //    {
+            //        Id = S.Id,
+            //        stockItem = S.stockItem,
+            //        Amount = 
+            //    }
+            //    ));
+            //}
+
+
+            return new StockBalanceList();
+        }
+    }
+
+
 }
