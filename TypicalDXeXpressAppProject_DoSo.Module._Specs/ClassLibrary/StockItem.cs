@@ -9,10 +9,11 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
 {
     public partial class StockItem : BaseClass, IBaseClass
     {
-        public int Id
+        public string Name
         {
-            get { return GetPropertyValue( () => Id); }
-            set { SetPropertyValue(() => Id, value); }
+            get { return GetPropertyValue(() => Name); }
+        
+            set { SetPropertyValue(() => Name, value); }
         }
     }
 }

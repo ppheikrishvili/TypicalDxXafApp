@@ -7,6 +7,7 @@ using DevExpress.Xpo.DB;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Shouldly;
 using TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects;
+using TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
 {
@@ -22,7 +23,11 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs
         {
             DevExpress.Xpo.Metadata.XPDictionary dict = new DevExpress.Xpo.Metadata.ReflectionDictionary();
             // Initialize the XPO dictionary. 
+            dict.GetDataStoreSchema(typeof(BaseClass).Assembly);
+
             dict.GetDataStoreSchema(typeof(Customer).Assembly);
+
+            dict.GetDataStoreSchema(typeof(StockTransaction).Assembly);
 
             XpoDefault.DataLayer = new ThreadSafeDataLayer(dict, new InMemoryDataStore());
         }

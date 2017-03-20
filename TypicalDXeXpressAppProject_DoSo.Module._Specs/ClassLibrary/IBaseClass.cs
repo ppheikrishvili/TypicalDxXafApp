@@ -4,7 +4,11 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
+
+
+using DevExpress.ExpressApp.Filtering;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
 {
@@ -13,9 +17,25 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
     }
 
 
-
-    public partial class BaseClass : XPObject
+    public partial class BaseClass : XPLiteObject
     {
+
+        public BaseClass()
+        {
+        }
+
+
+        public BaseClass(Session session) : base(session) { }
+
+
+
+        [Key(true)]
+        [VisibleInListView(true)]
+        public int ID
+        {
+            get { return GetPropertyValue(() => ID); }
+            set { SetPropertyValue("ID", value); }
+        }
 
         /// <summary>
         /// 
@@ -58,8 +78,13 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class BaseClassList<T> : List<T>, IBaseClass where T : BaseClass
+    public abstract class BaseClassList<T> : XPCollection<T>, IBaseClass where T : BaseClass
     {
+
+        public BaseClassList(Session sesssion) : base(sesssion)
+        {
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -67,7 +92,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
         {
         }
 
-
+        
 
         /// <summary>
         /// 
