@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using DevExpress.Persistent.Base;
 using DevExpress.Xpo;
 using TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
 {
-    public partial class StockBalance : BaseClass, IBaseClass
+    public class StockBalance : BaseClass, IBaseClass
     {
-        public StockBalance() : base() { }
+        //public StockBalance() : base() { }
 
         public StockBalance(Session session) : base(session) { }
 
@@ -62,26 +58,20 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
     /// </summary>
     public partial class StockBalanceList : BaseClassList<StockBalance>
     {
+        public StockBalanceList(Session sesssion) : base(sesssion){}
 
 
+        //public StockBalanceList() : base()
+        //{
 
-        public StockBalanceList(Session sesssion) : base(sesssion)
-        {
-
-        }
-
-
-        public StockBalanceList() : base()
-        {
-
-        }
+        //}
 
 
         /// <summary>
         /// 
         /// </summary>
         /// <param name="stockBalance"></param>
-        public void AddOne(StockBalance stockBalance)
+        public override void Add(StockBalance stockBalance)
         {
             var tmpStockBalance =
                 this.SingleOrDefault(W => ((W.customer.ID == stockBalance.customer.ID) && ( W.stockItem.ID == stockBalance.stockItem.ID) && !W.IsDeleted));
@@ -90,7 +80,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
             if (tmpStockBalance != null)
                 tmpStockBalance.Amount += stockBalance.Amount; //igulisxmeba rom amatebs
             else
-                this.Add(stockBalance);
+                base.Add(stockBalance);
         }
 
 
@@ -106,12 +96,11 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
             var tmpStockBalance =
                 this.SingleOrDefault(W => ((W.customer.ID == customer.ID) && (W.stockItem.ID == stockItem.ID) && !W.IsDeleted));
 
-
             if (tmpStockBalance != null)
                 tmpStockBalance.Amount += amount; //igulisxmeba rom amatebs
 
             else
-                this.Add(new StockBalance()
+                this.Add(new StockBalance(Session)
                 {
                     ID = (
                     this.Count > 0 ?

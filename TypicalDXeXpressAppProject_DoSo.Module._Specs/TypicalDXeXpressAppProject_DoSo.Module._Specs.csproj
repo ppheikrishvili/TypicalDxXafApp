@@ -90,6 +90,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassLibrary\CustomerList.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="ClassLibrary\IBaseClass.cs" />
     <Compile Include="ClassLibrary\StockBalance.cs" />
     <Compile Include="ClassLibrary\StockItem.cs" />

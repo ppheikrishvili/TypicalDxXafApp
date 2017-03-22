@@ -9,8 +9,15 @@ using System.ComponentModel;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
 {
+
+    public partial class Customer
+    {
+
+    }
+
+
     [DefaultClassOptions]
-    public class Customer : XPLiteObjectBase
+    public partial class Customer : XPLiteObjectBase
     {
         public Customer(Session session) : base(session) { }
 

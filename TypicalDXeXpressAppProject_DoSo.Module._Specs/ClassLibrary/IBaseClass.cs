@@ -9,6 +9,8 @@ using DevExpress.Xpo;
 
 
 using DevExpress.ExpressApp.Filtering;
+using Shouldly;
+using TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects;
 
 namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
 {
@@ -17,25 +19,15 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
     }
 
 
-    public partial class BaseClass : XPLiteObject
+    public partial class BaseClass : XPLiteObjectBase
     {
 
-        public BaseClass()
-        {
-        }
+        //public BaseClass(){}
 
 
         public BaseClass(Session session) : base(session) { }
 
 
-
-        [Key(true)]
-        [VisibleInListView(true)]
-        public int ID
-        {
-            get { return GetPropertyValue(() => ID); }
-            set { SetPropertyValue("ID", value); }
-        }
 
         /// <summary>
         /// 
@@ -78,7 +70,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
     /// 
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public abstract class BaseClassList<T> : XPCollection<T>, IBaseClass where T : BaseClass
+    public abstract class BaseClassList<T> : XPCollection<T>, IBaseClass where T : XPLiteObjectBase
     {
 
         public BaseClassList(Session sesssion) : base(sesssion)
@@ -88,11 +80,46 @@ namespace TypicalDXeXpressAppProject_DoSo.Module._Specs.ClassLibrary
         /// <summary>
         /// 
         /// </summary>
-        public BaseClassList()
+        //protected BaseClassList()
+        //{
+        //}
+
+        public T GetItemByid(int id)
         {
+            return this.FirstOrDefault(w => w.ID == id && !w.IsDeleted);
         }
 
-        
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="pos"></param>
+        /// <returns></returns>
+        public T GetItemBypos(int pos)
+        {
+            this.Count.ShouldBeLessThan(pos);
+            return this[pos];
+        }
+
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="whereFunc"></param>
+        /// <returns></returns>
+        public XPCollection<T> GetFilteredCollection(Func<T, bool> whereFunc)
+        {
+            return new XPCollection<T>(Session, this.Where(whereFunc).ToList());
+        }
+
+
+        public new virtual void Add(T initilaOneData)
+        {
+            base.Add(initilaOneData);
+        }
+
 
         /// <summary>
         /// 

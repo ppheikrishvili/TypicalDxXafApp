@@ -5,7 +5,7 @@ namespace TypicalDXeXpressAppProject_DoSo.Module.BusinessObjects
 {
     [NonPersistent]
     // ReSharper disable once InconsistentNaming
-    public class XPLiteObjectBase : XPLiteObject
+    public partial class XPLiteObjectBase : XPLiteObject
     {
         public XPLiteObjectBase(Session session) : base(session) { }
 
